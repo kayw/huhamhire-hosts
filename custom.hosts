@@ -1,0 +1,21 @@
+127.0.0.1        211.94.190.80
+127.0.0.1        advstat.xunlei.com
+127.0.0.1        114so.cn
+127.0.0.1        066c.com
+127.0.0.1        60.191.124.196
+127.0.0.1        daohang.114so.cn
+#迅雷看看屏蔽：
+127.0.0.1        mcfg.sandai.net
+127.0.0.1        biz5.sandai.net
+127.0.0.1        server1.adpolestar.net
+127.0.0.1        advstat.xunlei.com
+127.0.0.1        mpv.sandai.net
+#vnet 114
+127.0.0.1         bbs.114.vnet.cn
+127.0.0.1         114.zj.vnet.cn
+127.0.0.1         www.114.com.cn
+127.0.0.1         vnet.cn
+127.0.0.1         114.vnet.cn
+203.208.46.222	smarthosts.googlecode.com
+74.125.204.74   source.android.com 
+74.125.204.74   gerrit.googlesource.com
