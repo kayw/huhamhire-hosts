@@ -47,7 +47,7 @@ class FetchUpdate(object):
         :type parent: :class:`~tui.curses_d.CursesDaemon`
         """
         mirror_id = parent.settings[0][1]
-        mirror = parent.settings[0][2][mirror_id]
+        mirror = parent.mirror
         self.url = mirror["update"] + parent.filename
         self.path = "./" + parent.filename
         self.tmp_path = self.path + ".download"
@@ -58,7 +58,7 @@ class FetchUpdate(object):
         """
         Fetch the latest hosts data file from project server.
         """
-        socket.setdefaulttimeout(10)
+        socket.setdefaulttimeout(15)
         try:
             urllib.urlretrieve(self.url, self.tmp_path)
             self.replace_old()
@@ -519,21 +519,31 @@ class CursesDaemon(object):
                 {"version": "[Error]"}
         :rtype: dict
         """
+        if os.path.isfile(self.infofile):
+            with open(self.infofile) as f:
+                jsons = f.read()
+                info = json.loads(jsons)
+                return info
+
         print("Checking Update...")
         srv_id = self.settings[0][1]
-        url = self.settings[0][2][srv_id]["update"] + self.infofile
+        url = ""#self.settings[0][2][srv_id]["update"] + self.infofile
         for srv_id,server_info in enumerate(self.settings[0][2]):
-            if self.check_connection(server_info['test_url']):
+            url = server_info['test_url']
+            print(url)
+            if self.check_connection(url):#['test_url']):
                 url = server_info['update'] + self.infofile
+                self.mirror = server_info
                 break
                                             
         try:
-            socket.setdefaulttimeout(5)
+            socket.setdefaulttimeout(15)
             url_obj = urllib.urlopen(url)
             j_str = url_obj.read()
             url_obj.close()
             info = json.loads(j_str)
         except Exception,e:
+            print("open url %s error:%s".format(url, e))
             info = {"version": "[Error]"}
         self.hostsinfo["Latest"] = info["version"]
         return info

@@ -22,6 +22,7 @@ import os
 import sys
 import socket
 import time
+import urllib
 
 
 class CommonUtil(object):
@@ -53,10 +54,11 @@ class CommonUtil(object):
         :rtype: int
         """
         try:
-            timeout = 3
+            timeout = 1500
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             sock.settimeout(timeout)
             sock.connect((link, 80))
+            #urllib.urlopen(url)
             sock.close()
             return 1
         except:

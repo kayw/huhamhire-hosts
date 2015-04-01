@@ -16,6 +16,12 @@
 127.0.0.1         www.114.com.cn
 127.0.0.1         vnet.cn
 127.0.0.1         114.vnet.cn
-203.208.46.222	smarthosts.googlecode.com
-74.125.204.74   source.android.com 
-74.125.204.74   gerrit.googlesource.com
+64.233.189.166  source.android.com 
+64.233.189.166  storage.googleapis.com
+64.233.189.166  gerrit.googlesource.com
+64.233.189.166  chromium.googlesource.com
+64.233.189.166  go.googlesource.com
+64.233.189.166  golang.org
+64.233.189.166  play.golang.org
+64.233.189.166  git.chromium.org
+64.233.189.166  dl-ssl.google.com
