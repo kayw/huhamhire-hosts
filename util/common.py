@@ -54,7 +54,7 @@ class CommonUtil(object):
         :rtype: int
         """
         try:
-            timeout = 1500
+            timeout = 150
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             sock.settimeout(timeout)
             sock.connect((link, 80))
